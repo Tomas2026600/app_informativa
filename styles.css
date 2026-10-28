@@ -1,0 +1,355 @@
+/* ============================================
+   SIGNOVA · Hoja de estilos principal
+   ============================================ */
+
+/* ----- Variables y reset ----- */
+:root {
+  --bg: #f5f7fb;
+  --bg-card: #ffffff;
+  --text: #1a1d29;
+  --text-muted: #5a6072;
+  --primary: #4f46e5;
+  --primary-light: #6366f1;
+  --accent: #06b6d4;
+  --border: #e5e7eb;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  --shadow-hover: 0 20px 40px rgba(79, 70, 229, 0.15);
+  --radius: 20px;
+  --transition: 0.3s ease;
+}
+
+body.dark {
+  --bg: #0f1117;
+  --bg-card: #1a1d29;
+  --text: #f1f3f9;
+  --text-muted: #9aa1b5;
+  --primary: #818cf8;
+  --primary-light: #a5b4fc;
+  --accent: #22d3ee;
+  --border: #2a2e3d;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  --shadow-hover: 0 20px 40px rgba(129, 140, 248, 0.2);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  transition: background var(--transition), color var(--transition);
+  padding-bottom: 2rem;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  border-radius: 12px;
+}
+
+.container {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ----- Botón modo oscuro ----- */
+.dark-mode-toggle {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 1000;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: none;
+  background: var(--bg-card);
+  color: var(--text);
+  font-size: 1.4rem;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: transform var(--transition), background var(--transition), box-shadow var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dark-mode-toggle:hover {
+  transform: scale(1.1) rotate(15deg);
+  box-shadow: var(--shadow-hover);
+}
+
+/* ----- Hero ----- */
+.hero {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  color: #fff;
+  padding: 6rem 0 4rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -20%;
+  width: 600px;
+  height: 600px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -60%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero .logo {
+  font-size: clamp(2.8rem, 7vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  margin-bottom: 0.5rem;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.hero .tagline {
+  font-size: clamp(1rem, 2.5vw, 1.35rem);
+  font-weight: 400;
+  opacity: 0.95;
+  max-width: 650px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* ----- Secciones / tarjetas ----- */
+.section {
+  padding: 2rem 0;
+}
+
+.card {
+  margin: 1.5rem auto;
+  max-width: 1150px;
+}
+
+.card .container {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2.5rem 2rem;
+  box-shadow: var(--shadow);
+  transition: background var(--transition), border var(--transition), box-shadow var(--transition);
+}
+
+.card .container:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+.section h2 {
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  color: var(--text);
+  position: relative;
+  padding-bottom: 0.6rem;
+}
+
+.section h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 60px;
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+}
+
+.section p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+}
+
+/* ----- Pasos (cómo funciona) ----- */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.step {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.8rem 1.5rem;
+  text-align: center;
+  transition: transform var(--transition), box-shadow var(--transition), border var(--transition);
+}
+
+.step:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--primary);
+}
+
+.step-icon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.step h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+
+.step p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+/* ----- Problemáticas ----- */
+.problems-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.75rem;
+  margin-top: 2rem;
+}
+
+.problem-item {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition), border var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.problem-item:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--primary);
+}
+
+.problem-item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+.problem-item h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 1rem 1.25rem 0.5rem;
+  color: var(--text);
+}
+
+.problem-item p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin: 0 1.25rem 1.25rem;
+}
+
+/* ----- Placeholders de imágenes (alfabeto, diseño, diagrama) ----- */
+.image-placeholder {
+  margin-top: 1.5rem;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 2px dashed var(--border);
+  transition: border-color var(--transition), transform var(--transition);
+}
+
+.image-placeholder:hover {
+  border-color: var(--primary);
+  transform: scale(1.005);
+}
+
+.image-placeholder img {
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+}
+
+/* ----- Notas ----- */
+.nota {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-style: italic;
+  opacity: 0.8;
+}
+
+/* ----- Footer ----- */
+.footer {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  border-top: 1px solid var(--border);
+  margin-top: 2rem;
+}
+
+/* ----- Responsive ----- */
+@media (max-width: 600px) {
+  .dark-mode-toggle {
+    width: 46px;
+    height: 46px;
+    font-size: 1.2rem;
+    top: 1rem;
+    right: 1rem;
+  }
+
+  .hero {
+    padding: 5rem 0 3rem;
+  }
+
+  .card .container {
+    padding: 1.75rem 1.25rem;
+    border-radius: 16px;
+  }
+
+  .card {
+    margin: 1rem auto;
+  }
+}
+
+/* ----- Animación de entrada suave ----- */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card .container {
+  animation: fadeUp 0.6s ease both;
+}

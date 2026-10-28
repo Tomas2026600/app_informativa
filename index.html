@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signova · Guante traductor de lenguaje de señas</title>
+  <!-- Enlace al CSS (se pedirá después) -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- Fuente moderna (opcional, pero ayuda al atractivo visual) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Botón flotante para modo oscuro (se manejará con JS simple) -->
+  <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Cambiar modo oscuro">
+    🌙
+  </button>
+
+  <header class="hero">
+    <div class="container">
+      <h1 class="logo">Signova</h1>
+      <p class="tagline">El guante que traduce lenguaje de señas en tiempo real</p>
+    </div>
+  </header>
+
+  <main>
+    <!-- SECCIÓN: QUÉ SOMOS -->
+    <section class="section card" id="que-somos">
+      <div class="container">
+        <h2>¿Qué es Signova?</h2>
+        <p>
+          Somos SIGNOVA, un proyecto tecnológico que busca disminuir las barreras de comunicación entre las personas sordas y oyentes mediante la innovación y la tecnología. Desarrollamos un guante inteligente con sensores flexibles y un sistema de traducción que reconoce las señas realizadas con la mano y las convierte en letras que se visualizan en una aplicación de escritorio.<br>
+
+            Nuestro propósito es contribuir a una sociedad más inclusiva, en la que la comunicación no sea un obstáculo para la participación, el aprendizaje y la interacción entre las personas. Creemos que la tecnología debe estar al servicio de las personas, creando oportunidades para comprendernos mejor, derribar barreras y construir espacios donde todos puedan expresarse y ser escuchados.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECCIÓN: CÓMO FUNCIONA -->
+    <section class="section card" id="como-funciona">
+      <div class="container">
+        <h2>Cómo funciona</h2>
+        <div class="steps">
+          <div class="step">
+            <span class="step-icon">🧤</span>
+            <h3>1. Sensores</h3>
+            <p>El guante incorpora sensores de flexión y movimiento que detectan la posición de cada dedo.</p>
+          </div>
+          <div class="step">
+            <span class="step-icon">📡</span>
+            <h3>2. Procesamiento</h3>
+            <p>Los datos se envían vía Bluetooth a nuestra app, donde un modelo de detección de patrones para cada seña realizada.</p>
+          </div>
+          <div class="step">
+            <span class="step-icon">🔊</span>
+            <h3>3. Traducción</h3>
+            <p>La seña se convierte en texto en menos de un segundo, añadiendo la opción de que elijas si nuestra detección es acertada con la seña que deseas interpretar a español.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN: 3 PROBLEMÁTICAS -->
+    <section class="section card" id="problematicas">
+      <div class="container">
+        <h2>Problemáticas que abordamos</h2>
+        <div class="problems-grid">
+          <div class="problem-item">
+            <img src="rangos.jpg" alt="Problemática 1">
+            <h3>Rangos muy similares y volatiles entre cada seña</h3>
+            <p>Existen señas muy similares o casi identicas en las cuales solo cambian el factor de movimiento, Esto dificulta la asertividad de nuestr guante.</p>
+          </div>
+          <div class="problem-item">
+            <img src="interpretes.jpg" alt="Problemática 2">
+            <h3>Falta de intérpretes</h3>
+            <p>La escasez de intérpretes profesionales limita el acceso a servicios básicos como salud, educación y trámites.</p>
+          </div>
+          <div class="problem-item">
+            <img src="señas.png" alt="Problemática 3">
+            <h3>Factores de diferenciación entre señas</h3>
+            <p>Algunas señas usan mucho factores como muecas o inclinación de la mano, lo que nos limita a momentaneamente limitar el vocabulario que se puede conseguir con nuestro prototipo.</p>
+          </div>
+        </div>
+        <p class="nota">* Reemplaza estas imágenes con las tuyas propias (problemáticas).</p>
+      </div>
+    </section>
+
+    <!-- SECCIÓN: ALFABETO (imagen) -->
+    <section class="section card" id="alfabeto">
+      <div class="container">
+        <h2>Alfabeto en lenguaje de señas</h2>
+        <div class="image-placeholder">
+          <img src="alfabeto.jpg" alt="Alfabeto de lenguaje de señas">
+        </div>
+        <p class="nota">* Inserta aquí tu imagen del alfabeto (puede ser una tabla o ilustración).</p>
+      </div>
+    </section>
+
+    <!-- SECCIÓN: DISEÑO (imagen) -->
+    <section class="section card" id="diseno">
+      <div class="container">
+        <h2>Diseño del guante</h2>
+        <div class="image-placeholder">
+          <img src="diseño.jpg" alt="Diseño del guante Signova">
+        </div>
+        <p class="nota">* Inserta aquí tu imagen del diseño (prototipo, boceto o render).</p>
+      </div>
+    </section>
+
+    <!-- SECCIÓN: DIAGRAMA DE FLUJO (imagen) -->
+    <section class="section card" id="diagrama">
+      <div class="container">
+        <h2>Diagrama de flujo de la app</h2>
+        <div class="image-placeholder">
+          <img src="diagrama.png" alt="Diagrama de flujo de la app Signova">
+        </div>
+        <p class="nota">* Inserta aquí tu imagen del diagrama de flujo.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Signova © 2025 · Comunicación sin barreras</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript mínimo para el modo oscuro (toggle) -->
+  <script>
+    const toggleBtn = document.getElementById('darkModeToggle');
+    const body = document.body;
+
+    // Verifica preferencia guardada o del sistema
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && prefersDark)) {
+      body.classList.add('dark');
+      toggleBtn.textContent = '☀️';
+    } else {
+      toggleBtn.textContent = '🌙';
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      body.classList.toggle('dark');
+      if (body.classList.contains('dark')) {
+        toggleBtn.textContent = '☀️';
+        localStorage.setItem('theme', 'dark');
+      } else {
+        toggleBtn.textContent = '🌙';
+        localStorage.setItem('theme', 'light');
+      }
+    });
+  </script>
+</body>
+</html>
